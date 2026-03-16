@@ -1,0 +1,12 @@
+Run 1: 70
+Run 2: 84
+Run 3: 82
+Run 4: 80
+Run 5: 84
+
+Explanation:
+The inventory value changes every run because multiple bot processes access inventory.txt
+simultaneously. Each process reads the inventory before other processes finish updating it
+, causing several updates to overwrite each other. Since the operating system schedules
+processes differently each time, the final inventory value is inconsistent, demonstrating
+a TOC-TOU race condition.
